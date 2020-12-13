@@ -14,14 +14,18 @@ class TaskController extends Controller
 {
     public function index()
     {
+        $tasks = [];
+
         $projects = Project::where('user_id', Auth::id())
             ->orderBy('priority')
             ->get();
 
-        $tasks = Task::with('project')
-            ->where('project_id', $projects->first()->id)
-            ->orderBy('priority')
-            ->get();
+        if(count($projects) != 0) {
+            $tasks = Task::with('project')
+                ->where('project_id', $projects->first()->id)
+                ->orderBy('priority')
+                ->get();
+        } 
 
         return view('tasks.index', compact('tasks', 'projects'));
     }
@@ -44,13 +48,17 @@ class TaskController extends Controller
 
     public function create()
     {   
+        $amount = 0;
+
         $projects = Project::where('user_id', Auth::id())
             ->orderBy('priority')
             ->get();
 
-        $amount = Task::with('project')
-            ->where('project_id', $projects->first()->id)
-            ->count();
+        if(count($projects) != 0) {
+            $amount = Task::with('project')
+                ->where('project_id', $projects->first()->id)
+                ->count();
+        }
 
         $totalTasks = $amount + 1;
 
