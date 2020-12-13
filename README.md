@@ -4,7 +4,7 @@
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/8.x/installation)
 
-Clone the repository
+Clone the repository or unzip the folder
 
     git clone https://github.com/jlavado17/task-management.git
 
