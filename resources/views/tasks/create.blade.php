@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-item">
                             <label class="text-md">Project</label>
-                            <select id="project_id" name="project_id" class="w-full appearance-none text-black text-opacity-70 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200">
+                            <select id="project_id" name="project_id" class="w-full appearance-none text-black text-opacity-70 rounded shadow py-1 px-2  mr-2 focus:outline-none focus:shadow-outline focus:border-blue-200" required>
                                 @foreach ($projects as $project)
                                     <option value="{{ $project->id }}" {{ $project->priority == 1 ? 'selected' : '' }}>{{ $project->name }}</option>
                                 @endforeach

@@ -63,7 +63,7 @@
                                     <a href="{{ URL::route('projects.edit', $project->id) }}" class="mr-2 bg-indigo-500 text-white px-3 rounded-md hover:bg-indigo-700 hover:text-black ">
                                         Edit
                                     </a>
-                                    <form class="form-button" action="{{ URL::route('projects.destroy', $project->id) }}" method="post" onsubmit="confirm('Are you sure?');">
+                                    <form class="form-button" action="{{ URL::route('projects.destroy', $project->id) }}" method="post" onsubmit="return confirm('Are you sure?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 text-white px-3 rounded-md hover:bg-red-700 hover:text-black ">

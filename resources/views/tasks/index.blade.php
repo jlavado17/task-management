@@ -18,6 +18,9 @@
                             <option value="{{ $project->id }}" {{ $project->priority == 1 ? 'selected' : '' }}>{{ $project->name }}</option>
                         @endforeach
                     </select>
+                    @if(count($projects) == 0)
+                        <x-alert>Hmm, apparently you will need to create a project first...</x-alert>
+                    @endif
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table class="min-w-full table-auto">
